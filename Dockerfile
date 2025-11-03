@@ -16,10 +16,7 @@ RUN apt-get update && \
 RUN pip install --upgrade pip && \
     pip install coqui-tts
 
-# 3. 预下载 XTTS-v2 权重（build 阶段完成，运行免等）
-RUN python -c "from TTS.api import TTS; TTS('tts_models/multilingual/multi-dataset/xtts_v2', gpu=False)"
-
-# 4. 工作目录 & 代码
+# 3. 工作目录 & 代码
 WORKDIR /app
 COPY main.py ref.wav ./
 
