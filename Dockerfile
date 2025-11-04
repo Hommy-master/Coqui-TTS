@@ -22,7 +22,7 @@ RUN pip install --upgrade pip && \
 WORKDIR /app
 COPY main.py ref.wav ./
 
-# 4. 使用 huggingface-cli 下载模型
-RUN huggingface-cli download coqui/XTTS-v2 --local-dir ./xtts-v2
+# 4. 使用 huggingface-cli 下载模型 -- 这里下载镜像太大，打包会超时失败
+# RUN huggingface-cli download coqui/XTTS-v2 --local-dir ./xtts-v2
 
 ENTRYPOINT ["python", "main.py"]
